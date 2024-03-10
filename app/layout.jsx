@@ -1,7 +1,12 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
+import Image from 'next/image'
+import Logo from './components/dojo-logo.png'
 
-const inter = Inter({ subsets: ['latin'] })
+// Components
+import Navbar from './components/Navbar'
+
+const rubik = Rubik({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Help Desk',
@@ -11,7 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={rubik.className}>
+        <h1 className='capitalize flex items-center justify-center gap-x-3'>
+          <Image width={70} quality={100} src={Logo} alt='help desk logo' />
+          help desk
+        </h1>
+        <Navbar />
+        {children}
+      </body>
     </html>
   )
 }
